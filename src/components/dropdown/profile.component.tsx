@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function DropdownProfile() {
   return (
@@ -17,19 +18,13 @@ function DropdownProfile() {
         </span>
       </a>
       <div className="dropdown-menu dropdown-menu-end me-1">
-        <a href="#/" className="dropdown-item">
+        <Link className="dropdown-item" to="profile">
           Edit Profile
-        </a>
-        <a href="#/" className="dropdown-item d-flex align-items-center">
-          Inbox
-          <span className="badge bg-danger rounded-pill ms-auto pb-4px">2</span>
-        </a>
-        <a href="#/" className="dropdown-item">
-          Calendar
-        </a>
-        <a href="#/" className="dropdown-item">
+        </Link>
+        <Link className="dropdown-item" to="settings">
           Settings
-        </a>
+        </Link>
+
         <div className="dropdown-divider"></div>
         <a href="#/" className="dropdown-item">
           Log Out

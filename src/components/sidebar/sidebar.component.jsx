@@ -1,15 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import PerfectScrollbar from "react-perfect-scrollbar";
-// import { AppSettings } from './../../config/app-settings.js';
 import { slideToggle } from "./slide-toggle.component";
-// import SidebarMinifyBtn from './sidebar-minify-btn.jsx';
 import SidebarProfile from "./sidebar-profile.component";
 import SidebarNav from "./sidebar-nav.component";
 
 function Sidebar() {
-  //   const context = useContext(AppSettings);
-
   useEffect(() => {
     var appSidebarFloatSubmenuTimeout = "";
     var appSidebarFloatSubmenuDom = "";
@@ -303,12 +299,6 @@ function Sidebar() {
           "app-sidebar " + "app-sidebar-transparent" + "app-sidebar-grid"
         }
         data-bs-theme={"dark"}
-        // className={
-        //   "app-sidebar " +
-        //   (appSidebarTransparent ? "app-sidebar-transparent" : "") +
-        //   (appSidebarGrid ? "app-sidebar-grid" : "")
-        // }
-        // data-bs-theme={appSidebarLight ? "" : "dark"}
       >
         <PerfectScrollbar
           className="app-sidebar-content"
@@ -316,20 +306,11 @@ function Sidebar() {
         >
           <SidebarProfile />
           <SidebarNav />
-          {/* <SidebarMinifyBtn /> */}
         </PerfectScrollbar>
       </div>
-      <div
-        className="app-sidebar-bg"
-        // data-bs-theme={appSidebarLight ? "" : "dark"}
-        data-bs-theme={""}
-      ></div>
+      <div className="app-sidebar-bg" data-bs-theme={""}></div>
       <div className="app-sidebar-mobile-backdrop">
-        <Link
-          to="/"
-          //   onClick={toggleAppSidebarMobile}
-          className="stretched-link"
-        ></Link>
+        <Link to="/" className="stretched-link"></Link>
       </div>
     </React.Fragment>
   );
