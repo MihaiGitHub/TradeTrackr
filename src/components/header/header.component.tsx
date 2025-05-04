@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DropdownNotification from "./dropdown/dropdown.component";
-import DropdownProfile from "./dropdown/profile.component";
+import DropdownNotification from "../dropdown/dropdown.component";
+import DropdownProfile from "../dropdown/profile.component";
 
 function Header() {
   return (

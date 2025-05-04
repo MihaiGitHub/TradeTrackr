@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -11,7 +10,6 @@ import "bootstrap";
 // css
 import "@fortawesome/fontawesome-free/css/all.css";
 //import "react-perfect-scrollbar/dist/css/styles.css";
-import "./index.css";
 import "./scss/react.scss";
 
 const root = ReactDOM.createRoot(
