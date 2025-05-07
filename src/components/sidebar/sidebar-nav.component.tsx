@@ -1,59 +1,70 @@
-import React, { useEffect, useContext } from "react";
-import {
-  useResolvedPath,
-  useMatch,
-  NavLink,
-  useLocation,
-  matchPath,
-} from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink, useLocation, matchPath } from "react-router-dom";
 import menus from "./app-menu.component";
 import { slideUp } from "./slide-up.component";
 import { slideToggle } from "./slide-toggle.component";
 
-function NavItem({ menu, ...props }) {
-  let location = useLocation();
-  let match = matchPath(
+interface MenuItem {
+  path: string;
+  icon?: string;
+  img?: string;
+  title?: string;
+  label?: string;
+  badge?: string | React.ReactNode;
+  highlight?: boolean;
+  children?: MenuItem[];
+}
+
+interface NavItemProps {
+  menu: MenuItem;
+  [key: string]: any; // for extra props like `className` etc.
+}
+
+const NavItem: React.FC<NavItemProps> = ({ menu, ...props }) => {
+  const location = useLocation();
+  const match = matchPath(
     { path: menu.path, end: menu.path === "/" || !menu.children },
     location.pathname
   );
 
-  let icon = menu.icon && (
+  const icon = menu.icon && (
     <div className="menu-icon">
       <i className={menu.icon}></i>
     </div>
   );
-  let img = menu.img && (
+  const img = menu.img && (
     <div className="menu-icon-img">
       <img src={menu.img} alt="" />
     </div>
   );
-  let caret = menu.children && !menu.badge && (
+  const caret = menu.children && !menu.badge && (
     <div className="menu-caret"></div>
   );
-  let label = menu.label && (
+  const label = menu.label && (
     <span className="menu-label ms-5px">{menu.label}</span>
   );
-  let badge = menu.badge && <div className="menu-badge">{menu.badge}</div>;
-  let highlight = menu.highlight && (
+  const badge = menu.badge && <div className="menu-badge">{menu.badge}</div>;
+  const highlight = menu.highlight && (
     <i className="fa fa-paper-plane text-theme"></i>
   );
-  let title = menu.title && (
+  const title = menu.title && (
     <div className="menu-text">
       {menu.title} {label} {highlight}
     </div>
   );
 
   useEffect(() => {
-    const handleClick = function (e) {
+    const handleClick = function (this: HTMLElement, e: Event) {
       e.preventDefault();
-      const target = this.nextElementSibling;
+      const target = this.nextElementSibling as HTMLElement | null;
 
-      // Only close siblings at the same level
       const parentMenu = this.closest(".menu-submenu") || this.closest(".menu");
       const siblingMenus = parentMenu ? Array.from(parentMenu.children) : [];
 
       siblingMenus.forEach((menu) => {
-        const otherTarget = menu.querySelector(".menu-submenu");
+        const otherTarget = menu.querySelector(
+          ".menu-submenu"
+        ) as HTMLElement | null;
         if (otherTarget && otherTarget !== target) {
           slideUp(otherTarget, expandTime);
 
@@ -65,31 +76,33 @@ function NavItem({ menu, ...props }) {
         }
       });
 
-      const targetItemElm = target?.closest(".menu-item");
-      if (targetItemElm && targetItemElm.classList) {
-        if (
-          targetItemElm.classList.contains("expand") ||
-          (targetItemElm.classList.contains("active") && !target.style.display)
-        ) {
-          targetItemElm.classList.remove("expand");
-          targetItemElm.classList.add("closed");
-          slideToggle(target, expandTime);
-        } else {
-          targetItemElm.classList.add("expand");
-          targetItemElm.classList.remove("closed");
-          slideToggle(target, expandTime);
+      if (target) {
+        const targetItemElm = target.closest(".menu-item");
+        if (targetItemElm && targetItemElm.classList) {
+          if (
+            targetItemElm.classList.contains("expand") ||
+            (targetItemElm.classList.contains("active") &&
+              !target.style.display)
+          ) {
+            targetItemElm.classList.remove("expand");
+            targetItemElm.classList.add("closed");
+            slideToggle(target, expandTime);
+          } else {
+            targetItemElm.classList.add("expand");
+            targetItemElm.classList.remove("closed");
+            slideToggle(target, expandTime);
+          }
         }
       }
     };
 
-    const handleSidebarMenuToggle = (menus, expandTime) => {
+    const handleSidebarMenuToggle = (menus: Element[], expandTime: number) => {
       menus.forEach((menu) => {
-        menu.removeEventListener("click", handleClick); // Ensure old listeners are removed
-        menu.addEventListener("click", handleClick);
+        menu.removeEventListener("click", handleClick as EventListener);
+        menu.addEventListener("click", handleClick as EventListener);
       });
     };
 
-    // Get sidebar expand time
     const targetSidebar = document.querySelector(
       ".app-sidebar:not(.app-sidebar-end)"
     );
@@ -102,8 +115,7 @@ function NavItem({ menu, ...props }) {
     const menuBaseSelector = ".app-sidebar .menu > .menu-item.has-sub";
     const submenuBaseSelector = " > .menu-submenu > .menu-item.has-sub";
 
-    // Select menu items
-    const menus = Array.from(
+    const menusLvl0 = Array.from(
       document.querySelectorAll(menuBaseSelector + " > .menu-link")
     );
     const submenusLvl1 = Array.from(
@@ -121,13 +133,13 @@ function NavItem({ menu, ...props }) {
     );
 
     handleSidebarMenuToggle(
-      [...menus, ...submenusLvl1, ...submenusLvl2],
+      [...menusLvl0, ...submenusLvl1, ...submenusLvl2],
       expandTime
     );
 
     return () => {
-      [...menus, ...submenusLvl1, ...submenusLvl2].forEach((menu) => {
-        menu.removeEventListener("click", handleClick);
+      [...menusLvl0, ...submenusLvl1, ...submenusLvl2].forEach((menu) => {
+        menu.removeEventListener("click", handleClick as EventListener);
       });
     };
   }, []);
@@ -148,9 +160,9 @@ function NavItem({ menu, ...props }) {
       )}
     </div>
   );
-}
+};
 
-function SidebarNav() {
+const SidebarNav: React.FC = () => {
   return (
     <div className="menu">
       <div className="menu-header">Navigation</div>
@@ -159,6 +171,6 @@ function SidebarNav() {
       ))}
     </div>
   );
-}
+};
 
 export default SidebarNav;

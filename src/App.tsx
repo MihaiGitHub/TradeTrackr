@@ -8,7 +8,7 @@ import Reports from "./routes/reports/reports.component";
 import Profile from "./routes/profile/profile.component";
 import Settings from "./routes/settings/settings.component";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <Routes>
@@ -24,6 +24,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

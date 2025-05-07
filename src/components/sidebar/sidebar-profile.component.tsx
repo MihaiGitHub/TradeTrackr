@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function SidebarProfile() {
+const SidebarProfile: React.FC = () => {
   return (
     <div className="menu">
       <div className="menu-profile">
@@ -24,6 +24,6 @@ function SidebarProfile() {
       </div>
     </div>
   );
-}
+};
 
 export default SidebarProfile;

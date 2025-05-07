@@ -1,12 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-function Content() {
+const Content: React.FC = () => {
   return (
-    <div className={"app-content "}>
+    <div className="app-content">
       <Outlet />
     </div>
   );
-}
+};
 
 export default Content;

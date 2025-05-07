@@ -1,6 +1,6 @@
 import React from "react";
 
-function DropdownNotification() {
+const DropdownNotification: React.FC = () => {
   return (
     <div className="navbar-item dropdown">
       <a
@@ -17,6 +17,6 @@ function DropdownNotification() {
       </div>
     </div>
   );
-}
+};
 
 export default DropdownNotification;

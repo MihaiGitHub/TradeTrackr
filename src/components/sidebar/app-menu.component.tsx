@@ -1,4 +1,10 @@
-const Menu = [
+interface MenuItem {
+  path: string;
+  icon: string;
+  title: string;
+}
+
+const Menu: MenuItem[] = [
   { path: "/", icon: "fa fa-sitemap", title: "Dashboard" },
   { path: "/quotes", icon: "fa fa-magnifying-glass", title: "View Quotes" },
   { path: "/trading", icon: "fa fa-arrow-trend-up", title: "Paper Trading" },

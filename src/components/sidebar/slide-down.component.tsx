@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-expressions */
-export function slideDown(elm, duration = 300) {
+export function slideDown(elm: HTMLElement, duration: number = 300): void {
   if (!elm.classList.contains("transitioning")) {
     elm.classList.add("transitioning");
     elm.style.removeProperty("display");
@@ -8,12 +7,15 @@ export function slideDown(elm, duration = 300) {
     elm.style.display = display;
     let height = elm.offsetHeight;
     elm.style.overflow = "hidden";
-    elm.style.height = 0;
-    elm.style.paddingTop = 0;
-    elm.style.paddingBottom = 0;
-    elm.style.marginTop = 0;
-    elm.style.marginBottom = 0;
-    elm.offsetHeight;
+    elm.style.height = "0";
+    elm.style.paddingTop = "0";
+    elm.style.paddingBottom = "0";
+    elm.style.marginTop = "0";
+    elm.style.marginBottom = "0";
+
+    // Forces a reflow
+    const _ = elm.offsetHeight;
+
     elm.style.boxSizing = "border-box";
     elm.style.transitionProperty = "height, margin, padding";
     elm.style.transitionDuration = duration + "ms";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function DropdownProfile() {
+const DropdownProfile: React.FC = () => {
   return (
     <div className="navbar-item navbar-user dropdown">
       <a
@@ -24,7 +24,6 @@ function DropdownProfile() {
         <Link className="dropdown-item" to="settings">
           Settings
         </Link>
-
         <div className="dropdown-divider"></div>
         <a href="#/" className="dropdown-item">
           Log Out
@@ -32,6 +31,6 @@ function DropdownProfile() {
       </div>
     </div>
   );
-}
+};
 
 export default DropdownProfile;

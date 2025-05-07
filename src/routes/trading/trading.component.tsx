@@ -1,6 +1,6 @@
 import React from "react";
 
-const Trading = () => {
+const Trading: React.FC = () => {
   return <div>Trading</div>;
 };
 

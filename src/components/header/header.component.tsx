@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import DropdownNotification from "../dropdown/dropdown.component";
 import DropdownProfile from "../dropdown/profile.component";
 
-function Header() {
+const Header: React.FC = () => {
   return (
-    <div id="header" className="app-header" data-bs-theme={""}>
+    <div id="header" className="app-header" data-bs-theme="">
       <div className="navbar-header">
         <Link to="/" className="navbar-brand">
           <span className="navbar-logo"></span> <b>Trade</b> Trackr
@@ -18,6 +18,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
