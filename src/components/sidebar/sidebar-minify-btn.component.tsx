@@ -10,7 +10,7 @@ const SidebarMinifyBtn: React.FC<SidebarMinifyBtnProps> = ({
   appSidebarMinify,
   setAppSidebarMinify,
 }) => {
-  const toggleAppSidebarMinify = (e: any) => {
+  const toggleAppSidebarMinify = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
     setAppSidebarMinify(!appSidebarMinify);
