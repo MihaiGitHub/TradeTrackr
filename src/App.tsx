@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./routes/home/home.component";
-import Dashboard from "./routes/dashboard/dashboard.component";
-import Quotes from "./routes/quotes/quotes.component";
-import Trading from "./routes/trading/trading.component";
-import Reports from "./routes/reports/reports.component";
-import Profile from "./routes/profile/profile.component";
-import Settings from "./routes/settings/settings.component";
+import Home from "./pages/home/home.component";
+import Dashboard from "./pages/dashboard/dashboard.component";
+import Quotes from "./pages/quotes/quotes.component";
+import Trading from "./pages/trading/trading.component";
+import Reports from "./pages/reports/reports.component";
+import Profile from "./pages/profile/profile.component";
+import Settings from "./pages/settings/settings.component";
 
 const App: React.FC = () => {
   return (
