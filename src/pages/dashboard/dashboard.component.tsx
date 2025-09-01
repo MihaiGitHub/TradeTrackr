@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 // import "jsvectormap/dist/maps/world.js";
 // import "jsvectormap/dist/jsvectormap.min.css";
 // import Chart from 'react-apexcharts';
-// import DateRangePicker from 'react-bootstrap-daterangepicker';
-// import Moment from 'moment';
-// import "bootstrap-daterangepicker/daterangepicker.css";
+import DateRangePicker from "react-bootstrap-daterangepicker";
+import Moment from "moment";
+import "bootstrap-daterangepicker/daterangepicker.css";
 
 import * as bootstrap from "bootstrap";
 
@@ -21,22 +21,27 @@ const Dashboard: React.FC = () => {
   // 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   // };
 
-  // function handleDateApplyEvent(event, picker) {
-  // 	var startDate = picker.startDate;
-  // 	var endDate = picker.endDate;
-  // 	var gap = endDate.diff(startDate, 'days');
+  function handleDateApplyEvent(event: any, picker: any) {
+    console.log(event);
+    var startDate = picker.startDate;
+    var endDate = picker.endDate;
+    var gap = endDate.diff(startDate, "days");
 
-  // 	var currentWeek = startDate.format('D MMMM YYYY') + ' - ' + endDate.format('D MMMM YYYY');
-  // 	var prevWeek = Moment(startDate).subtract('days', gap).format('D MMMM') + ' - ' + Moment(startDate).subtract('days', 1).format('D MMMM YYYY');
+    var currentWeek =
+      startDate.format("D MMMM YYYY") + " - " + endDate.format("D MMMM YYYY");
+    var prevWeek =
+      Moment(startDate).subtract("days", gap).format("D MMMM") +
+      " - " +
+      Moment(startDate).subtract("days", 1).format("D MMMM YYYY");
 
-  // 	dateRange.currentWeek = currentWeek;
-  // 	dateRange.prevWeek = prevWeek;
+    dateRange.currentWeek = currentWeek;
+    dateRange.prevWeek = prevWeek;
 
-  // 	dateRange = {
-  // 		currentWeek: currentWeek,
-  // 		prevWeek: prevWeek
-  // 	};
-  // }
+    dateRange = {
+      currentWeek: currentWeek,
+      prevWeek: prevWeek,
+    };
+  }
 
   var blue = getComputedStyle(document.body)
     .getPropertyValue("--bs-blue")
@@ -58,12 +63,18 @@ const Dashboard: React.FC = () => {
     .getPropertyValue("--bs-teal")
     .trim();
 
-  // var startDate = Moment().subtract(7, 'days');
-  // var endDate = Moment();
-  // var dateRange = {
-  // 	currentWeek: Moment().subtract('days', 7).format('D MMMM YYYY') + ' - ' + Moment().format('D MMMM YYYY'),
-  // 	prevWeek: Moment().subtract('days', 15).format('D MMMM') + ' - ' + Moment().subtract('days', 8).format('D MMMM YYYY')
-  // }
+  var startDate = Moment().subtract(7, "days");
+  var endDate = Moment();
+  var dateRange = {
+    currentWeek:
+      Moment().subtract("days", 7).format("D MMMM YYYY") +
+      " - " +
+      Moment().format("D MMMM YYYY"),
+    prevWeek:
+      Moment().subtract("days", 15).format("D MMMM") +
+      " - " +
+      Moment().subtract("days", 8).format("D MMMM YYYY"),
+  };
 
   // var visitorChartSeries = [{
   // 	name: 'Unique Visitors',
@@ -447,9 +458,11 @@ const Dashboard: React.FC = () => {
       </ol>
       <h1 className="page-header mb-3">Dashboard</h1>
       <div className="d-sm-flex align-items-center mb-3">
-        {/* <DateRangePicker
-          startDate={startDate}
-          endDate={endDate}
+        <DateRangePicker
+          initialSettings={{
+            startDate: startDate,
+            endDate: endDate,
+          }}
           onApply={handleDateApplyEvent}
         >
           <button className="btn btn-inverse me-2 text-truncate">
@@ -457,9 +470,9 @@ const Dashboard: React.FC = () => {
             <span>{dateRange.currentWeek}</span>
             <b className="caret ms-1 opacity-5"></b>
           </button>
-        </DateRangePicker> */}
+        </DateRangePicker>
         <div className="text-gray-600 fw-bold mt-2 mt-sm-0">
-          {/* compared to <span>{dateRange.prevWeek}</span> */}
+          compared to <span>{dateRange.prevWeek}</span>
         </div>
       </div>
       <div className="row">

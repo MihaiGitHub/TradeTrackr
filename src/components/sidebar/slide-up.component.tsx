@@ -5,7 +5,7 @@ export function slideUp(elm: HTMLElement, duration: number = 300): void {
     elm.style.transitionDuration = duration + "ms";
     elm.style.boxSizing = "border-box";
     elm.style.height = elm.offsetHeight + "px";
-    elm.offsetHeight; // This forces a reflow
+    void elm.offsetHeight; // This forces a reflow
     elm.style.overflow = "hidden";
     elm.style.height = "0";
     elm.style.paddingTop = "0";
