@@ -7,7 +7,11 @@ const Home: React.FC = () => {
   const [appSidebarMinify, setAppSidebarMinify] = useState(false);
 
   return (
-    <div className={appSidebarMinify ? "app-sidebar-minified" : ""}>
+    <div
+      className={
+        (appSidebarMinify ? "app-sidebar-minified" : "") + " app-header-fixed"
+      }
+    >
       <Header />
       <Sidebar
         appSidebarMinify={appSidebarMinify}
