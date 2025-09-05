@@ -2,53 +2,54 @@ import React, { useEffect } from "react";
 //import { Icon } from '@iconify/react';
 
 const Settings: React.FC = () => {
-  // useEffect(() => {
-  // 	const sections = document.querySelectorAll('#bsSpyContent > div');
-  // 	const navLinks = document.querySelectorAll('#bsSpyTarget > a');
+  useEffect(() => {
+    const sections: NodeListOf<HTMLElement> = document.querySelectorAll(
+      "#bsSpyContent > div"
+    );
+    const navLinks: NodeListOf<HTMLAnchorElement> =
+      document.querySelectorAll("#bsSpyTarget > a");
 
-  // 	function activateNavLink(id) {
-  // 		navLinks.forEach((link) => {
-  // 			if (link && link.classList) {
-  // 				link.classList.remove('active');
-  // 			}
-  // 		});
-  // 		var target = document.querySelector(`nav a[href*='${id}']`);
-  // 		if (target) {
-  // 			target.classList.add('active');
-  // 		}
-  // 	}
+    function activateNavLink(id: string | null) {
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (id && link.getAttribute("href") === `#${id}`) {
+          link.classList.add("active");
+        }
+      });
+    }
 
-  // 	function isElementInViewport(el) {
-  // 		const rect = el.getBoundingClientRect();
-  // 		return (
-  // 			rect.top >= 0 &&
-  // 			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
-  // 		);
-  // 	}
+    function isElementInViewport(el: HTMLElement): boolean {
+      const rect = el.getBoundingClientRect();
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
 
-  // 	function handleViewport() {
-  // 		let activeSection = null;
-  // 		for (let i = sections.length - 1; i >= 0; i--) {
-  // 			if (isElementInViewport(sections[i])) {
-  // 				activeSection = sections[i].getAttribute('id');
-  // 				activateNavLink(activeSection);
-  // 				break;
-  // 			}
-  // 		}
+      // ✅ more lenient: true if top is in viewport
+      return rect.top >= 0 && rect.top < viewportHeight / 2;
+    }
 
-  // 		let combinedHeight = 0;
-  // 		let sectionIndex = Array.from(sections).findIndex((section) => section.getAttribute('id') === activeSection);
-  // 		for (let i = sectionIndex; i < sections.length; i++) {
-  // 			combinedHeight += sections[i].offsetHeight;
-  // 		}
-  // 		if (combinedHeight <= window.innerHeight) {
-  // 			activateNavLink(activeSection);
-  // 		}
-  // 	}
+    function handleViewport() {
+      let activeSection: string | null = null;
 
-  // 	window.onscroll = handleViewport;
-  // 	// eslint-disable-next-line
-  // }, []);
+      for (let i = sections.length - 1; i >= 0; i--) {
+        if (isElementInViewport(sections[i])) {
+          activeSection = sections[i].getAttribute("id");
+          break;
+        }
+      }
+
+      if (activeSection) {
+        activateNavLink(activeSection);
+      }
+    }
+
+    window.addEventListener("scroll", handleViewport);
+    // ✅ run once on mount so nav is synced immediately
+    // handleViewport();
+
+    return () => {
+      window.removeEventListener("scroll", handleViewport);
+    };
+  }, []);
 
   return (
     <div>
