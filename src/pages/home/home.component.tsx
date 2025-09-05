@@ -9,7 +9,8 @@ const Home: React.FC = () => {
   return (
     <div
       className={
-        (appSidebarMinify ? "app-sidebar-minified" : "") + " app-header-fixed"
+        (appSidebarMinify ? "app-sidebar-minified" : "") +
+        " app-header-fixed app-sidebar-fixed"
       }
     >
       <Header />
