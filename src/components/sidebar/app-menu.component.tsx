@@ -12,7 +12,16 @@ const Menu: MenuItem[] = [
     icon: "fa fa-filter",
     title: "Stock Screener",
   },
-  { path: "/trading", icon: "fa fa-arrow-trend-up", title: "Paper Trading" },
+  {
+    path: "/paper-trading",
+    icon: "fa fa-arrow-trend-up",
+    title: "Paper Trading",
+  },
+  {
+    path: "/trading-bot",
+    icon: "fa fa-robot",
+    title: "Trading Bot",
+  },
   { path: "/reports", icon: "fa fa-chart-pie", title: "Reports" },
 ];
 

@@ -4,7 +4,8 @@ import Home from "./pages/home/home.component";
 import Dashboard from "./pages/dashboard/dashboard.component";
 import Quotes from "./pages/quotes/quotes.component";
 import Screener from "./pages/screener/screener.component";
-import Trading from "./pages/trading/trading.component";
+import PaperTrading from "./pages/paper-trading/paper-trading.component";
+import TradingBot from "./pages/trading-bot/trading-bot.component";
 import Reports from "./pages/reports/reports.component";
 import Profile from "./pages/profile/profile.component";
 import Settings from "./pages/settings/settings.component";
@@ -17,7 +18,8 @@ const App: React.FC = () => {
           <Route index element={<Dashboard />} />
           <Route path="quotes" element={<Quotes />} />
           <Route path="screener" element={<Screener />} />
-          <Route path="trading" element={<Trading />} />
+          <Route path="paper-trading" element={<PaperTrading />} />
+          <Route path="trading-bot" element={<TradingBot />} />
           <Route path="reports" element={<Reports />} />
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
