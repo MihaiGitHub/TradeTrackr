@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-//import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 
 const Settings: React.FC = () => {
   useEffect(() => {
@@ -124,10 +124,10 @@ const Settings: React.FC = () => {
         <div className="col-xl-8" id="bsSpyContent">
           <div id="general" className="mb-4 pb-3">
             <h4 className="d-flex align-items-center mb-2">
-              {/* <Icon
+              <Icon
                 className="iconify fs-24px me-2 text-body text-opacity-75 my-n1"
                 icon="solar:user-bold-duotone"
-              />{" "} */}
+              />
               General
             </h4>
             <p>
@@ -219,10 +219,10 @@ const Settings: React.FC = () => {
 
           <div id="notifications" className="mb-4 pb-3">
             <h4 className="d-flex align-items-center mb-2 mt-3">
-              {/* <Icon
+              <Icon
                 className="iconify fs-24px me-2 text-body text-opacity-75 my-n1"
                 icon="solar:bell-bold-duotone"
-              /> */}
+              />
               Notifications
             </h4>
             <p>Enable or disable what notifications you want to receive.</p>
@@ -306,10 +306,10 @@ const Settings: React.FC = () => {
 
           <div id="privacyAndSecurity" className="mb-4 pb-3">
             <h4 className="d-flex align-items-center mb-2 mt-3">
-              {/* <Icon
+              <Icon
                 className="iconify fs-24px me-2 text-body text-opacity-75 my-n1"
                 icon="solar:lock-password-bold-duotone"
-              /> */}
+              />
               Privacy and security
             </h4>
             <p>
@@ -403,10 +403,10 @@ const Settings: React.FC = () => {
 
           <div id="payment" className="mb-4 pb-3">
             <h4 className="d-flex align-items-center mb-2 mt-3">
-              {/* <Icon
+              <Icon
                 className="iconify fs-24px me-2 text-body text-opacity-75 my-n1"
                 icon="solar:bag-4-bold-duotone"
-              /> */}
+              />
               Payment
             </h4>
             <p>Manage your website payment provider</p>
@@ -436,10 +436,10 @@ const Settings: React.FC = () => {
 
           <div id="shipping" className="mb-4 pb-3">
             <h4 className="d-flex align-items-center mb-2 mt-3">
-              {/* <Icon
+              <Icon
                 className="iconify fs-24px me-2 text-body text-opacity-75 my-n1"
                 icon="solar:box-bold-duotone"
-              /> */}
+              />
               Shipping
             </h4>
             <p>Allowed shipping area and zone setting</p>
@@ -468,10 +468,10 @@ const Settings: React.FC = () => {
 
           <div id="mediaAndFiles" className="mb-4 pb-3">
             <h4 className="d-flex align-items-center mb-2 mt-3">
-              {/* <Icon
+              <Icon
                 className="iconify fs-24px me-2 text-body text-opacity-75 my-n1"
                 icon="solar:camera-bold-duotone"
-              /> */}
+              />
               Media and Files
             </h4>
             <p>Allowed files and media format upload setting</p>
@@ -518,10 +518,10 @@ const Settings: React.FC = () => {
 
           <div id="languages" className="mb-4 pb-3">
             <h4 className="d-flex align-items-center mb-2 mt-3">
-              {/* <Icon
+              <Icon
                 className="iconify fs-24px me-2 text-body text-opacity-75 my-n1"
                 icon="solar:globus-bold-duotone"
-              /> */}
+              />
               Languages
             </h4>
             <p>Language font support and auto translation enabled</p>
@@ -568,10 +568,10 @@ const Settings: React.FC = () => {
 
           <div id="system" className="mb-4 pb-3">
             <h4 className="d-flex align-items-center mb-2 mt-3">
-              {/* <Icon
+              <Icon
                 className="iconify fs-24px me-2 text-body text-opacity-75 my-n1"
                 icon="solar:ssd-round-bold-duotone"
-              /> */}
+              />
               System
             </h4>
             <p>System storage, bandwidth and database setting</p>
@@ -640,10 +640,10 @@ const Settings: React.FC = () => {
 
           <div id="resetSettings" className="mb-4 pb-3">
             <h4 className="d-flex align-items-center mb-2 mt-3">
-              {/* <Icon
+              <Icon
                 className="iconify fs-24px me-2 text-body text-opacity-75 my-n1"
                 icon="solar:restart-bold-duotone"
-              /> */}
+              />
               Reset settings
             </h4>
             <p>Reset all website setting to factory default setting.</p>
