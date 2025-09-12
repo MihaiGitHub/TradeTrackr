@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 // import "jsvectormap/dist/maps/world.js";
 // import "jsvectormap/dist/jsvectormap.min.css";
 // import Chart from 'react-apexcharts';
-import DateRangePicker from "react-bootstrap-daterangepicker";
 import Moment from "moment";
 import "bootstrap-daterangepicker/daterangepicker.css";
 
@@ -457,24 +456,7 @@ const Dashboard: React.FC = () => {
         <li className="breadcrumb-item active">Dashboard</li>
       </ol>
       <h1 className="page-header mb-3">Dashboard</h1>
-      <div className="d-sm-flex align-items-center mb-3">
-        <DateRangePicker
-          initialSettings={{
-            startDate: startDate,
-            endDate: endDate,
-          }}
-          onApply={handleDateApplyEvent}
-        >
-          <button className="btn btn-inverse me-2 text-truncate">
-            <i className="fa fa-calendar fa-fw text-white text-opacity-50 ms-n1 me-1"></i>
-            <span>{dateRange.currentWeek}</span>
-            <b className="caret ms-1 opacity-5"></b>
-          </button>
-        </DateRangePicker>
-        <div className="text-gray-600 fw-bold mt-2 mt-sm-0">
-          compared to <span>{dateRange.prevWeek}</span>
-        </div>
-      </div>
+
       <div className="row">
         <div className="col-xl-6">
           <div className="card border-0 mb-3 overflow-hidden bg-gray-800 text-white">
