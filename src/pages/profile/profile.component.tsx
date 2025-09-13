@@ -911,16 +911,6 @@ function Profile() {
           <div className="tab-pane fade" id="profile-about">
             <div className="table-responsive form-inline">
               <table className="table table-profile align-middle">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>
-                      <h4>
-                        Sean Ngu <small>UXUI + Frontend Developer</small>
-                      </h4>
-                    </th>
-                  </tr>
-                </thead>
                 <tbody>
                   <tr className="highlight">
                     <td className="field">Mood</td>
