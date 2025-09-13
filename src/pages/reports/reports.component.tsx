@@ -472,7 +472,7 @@ const Reports: React.FC = () => {
           </button>
         </DateRangePicker>
         <div className="text-gray-600 fw-bold mt-2 mt-sm-0">
-          compared to <span>{dateRange.prevWeek}</span>
+          only selection form on this page to start
         </div>
       </div>
       <div className="row">
