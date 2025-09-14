@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 //import jsVectorMap from 'jsvectormap';
 // import "jsvectormap/dist/maps/world.js";
 // import "jsvectormap/dist/jsvectormap.min.css";
-// import Chart from 'react-apexcharts';
+import Chart from "react-apexcharts";
+import { ApexOptions } from "apexcharts";
 import Moment from "moment";
 import "bootstrap-daterangepicker/daterangepicker.css";
 
 import * as bootstrap from "bootstrap";
 
 const Dashboard: React.FC = () => {
-  // function handleGetDate(minusDate) {
-  // 	var d = new Date();
-  // 			d = d.setDate(d.getDate() - minusDate);
-  // 	return d;
-  // };
+  function handleGetDate(minusDate: number): Date {
+    const d = new Date();
+    d.setDate(d.getDate() - minusDate);
+    return d;
+  }
 
   // function convertNumberWithCommas(x) {
   // 	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -75,56 +76,173 @@ const Dashboard: React.FC = () => {
       Moment().subtract("days", 8).format("D MMMM YYYY"),
   };
 
-  // var visitorChartSeries = [{
-  // 	name: 'Unique Visitors',
-  // 	data: [
-  // 		[handleGetDate(77), 13], [handleGetDate(76), 13], [handleGetDate(75), 6 ],
-  // 		[handleGetDate(73), 6 ], [handleGetDate(72), 6 ], [handleGetDate(71), 5 ], [handleGetDate(70), 5 ],
-  // 		[handleGetDate(69), 5 ], [handleGetDate(68), 6 ], [handleGetDate(67), 7 ], [handleGetDate(66), 6 ],
-  // 		[handleGetDate(65), 9 ], [handleGetDate(64), 9 ], [handleGetDate(63), 8 ], [handleGetDate(62), 10],
-  // 		[handleGetDate(61), 10], [handleGetDate(60), 10], [handleGetDate(59), 10], [handleGetDate(58), 9 ],
-  // 		[handleGetDate(57), 9 ], [handleGetDate(56), 10], [handleGetDate(55), 9 ], [handleGetDate(54), 9 ],
-  // 		[handleGetDate(53), 8 ], [handleGetDate(52), 8 ], [handleGetDate(51), 8 ], [handleGetDate(50), 8 ],
-  // 		[handleGetDate(49), 8 ], [handleGetDate(48), 7 ], [handleGetDate(47), 7 ], [handleGetDate(46), 6 ],
-  // 		[handleGetDate(45), 6 ], [handleGetDate(44), 6 ], [handleGetDate(43), 6 ], [handleGetDate(42), 5 ],
-  // 		[handleGetDate(41), 5 ], [handleGetDate(40), 4 ], [handleGetDate(39), 4 ], [handleGetDate(38), 5 ],
-  // 		[handleGetDate(37), 5 ], [handleGetDate(36), 5 ], [handleGetDate(35), 7 ], [handleGetDate(34), 7 ],
-  // 		[handleGetDate(33), 7 ], [handleGetDate(32), 10], [handleGetDate(31), 9 ], [handleGetDate(30), 9 ],
-  // 		[handleGetDate(29), 10], [handleGetDate(28), 11], [handleGetDate(27), 11], [handleGetDate(26), 8 ],
-  // 		[handleGetDate(25), 8 ], [handleGetDate(24), 7 ], [handleGetDate(23), 8 ], [handleGetDate(22), 9 ],
-  // 		[handleGetDate(21), 8 ], [handleGetDate(20), 9 ], [handleGetDate(19), 10], [handleGetDate(18), 9 ],
-  // 		[handleGetDate(17), 10], [handleGetDate(16), 16], [handleGetDate(15), 17], [handleGetDate(14), 16],
-  // 		[handleGetDate(13), 17], [handleGetDate(12), 16], [handleGetDate(11), 15], [handleGetDate(10), 14],
-  // 		[handleGetDate(9) , 24], [handleGetDate(8) , 18], [handleGetDate(7) , 15], [handleGetDate(6) , 14],
-  // 		[handleGetDate(5) , 16], [handleGetDate(4) , 16], [handleGetDate(3) , 17], [handleGetDate(2) , 7 ],
-  // 		[handleGetDate(1) , 7 ], [handleGetDate(0) , 7 ]
-  // 	]
-  // }, {
-  // 	name: 'Page Views',
-  // 	data: [
-  // 		[handleGetDate(77), 14], [handleGetDate(76), 13], [handleGetDate(75), 15],
-  // 		[handleGetDate(73), 14], [handleGetDate(72), 13], [handleGetDate(71), 15], [handleGetDate(70), 16],
-  // 		[handleGetDate(69), 16], [handleGetDate(68), 14], [handleGetDate(67), 14], [handleGetDate(66), 13],
-  // 		[handleGetDate(65), 12], [handleGetDate(64), 13], [handleGetDate(63), 13], [handleGetDate(62), 15],
-  // 		[handleGetDate(61), 16], [handleGetDate(60), 16], [handleGetDate(59), 17], [handleGetDate(58), 17],
-  // 		[handleGetDate(57), 18], [handleGetDate(56), 15], [handleGetDate(55), 15], [handleGetDate(54), 15],
-  // 		[handleGetDate(53), 19], [handleGetDate(52), 19], [handleGetDate(51), 18], [handleGetDate(50), 18],
-  // 		[handleGetDate(49), 17], [handleGetDate(48), 16], [handleGetDate(47), 18], [handleGetDate(46), 18],
-  // 		[handleGetDate(45), 18], [handleGetDate(44), 16], [handleGetDate(43), 14], [handleGetDate(42), 14],
-  // 		[handleGetDate(41), 13], [handleGetDate(40), 14], [handleGetDate(39), 13], [handleGetDate(38), 10],
-  // 		[handleGetDate(37), 9 ], [handleGetDate(36), 10], [handleGetDate(35), 11], [handleGetDate(34), 11],
-  // 		[handleGetDate(33), 11], [handleGetDate(32), 10], [handleGetDate(31), 9 ], [handleGetDate(30), 10],
-  // 		[handleGetDate(29), 13], [handleGetDate(28), 14], [handleGetDate(27), 14], [handleGetDate(26), 13],
-  // 		[handleGetDate(25), 12], [handleGetDate(24), 11], [handleGetDate(23), 13], [handleGetDate(22), 13],
-  // 		[handleGetDate(21), 13], [handleGetDate(20), 13], [handleGetDate(19), 14], [handleGetDate(18), 13],
-  // 		[handleGetDate(17), 13], [handleGetDate(16), 19], [handleGetDate(15), 21], [handleGetDate(14), 22],
-  // 		[handleGetDate(13), 25], [handleGetDate(12), 24], [handleGetDate(11), 24], [handleGetDate(10), 22],
-  // 		[handleGetDate(9) , 16], [handleGetDate(8) , 15], [handleGetDate(7) , 12], [handleGetDate(6) , 12],
-  // 		[handleGetDate(5) , 15], [handleGetDate(4) , 15], [handleGetDate(3) , 15], [handleGetDate(2) , 18],
-  // 		[handleGetDate(2) , 18], [handleGetDate(0) , 17]
-  // 	]
-  // }];
-  var visitorChartOptions = {
+  var visitorChartSeries = [
+    {
+      name: "Unique Visitors",
+      data: [
+        [handleGetDate(77), 13],
+        [handleGetDate(76), 13],
+        [handleGetDate(75), 6],
+        [handleGetDate(73), 6],
+        [handleGetDate(72), 6],
+        [handleGetDate(71), 5],
+        [handleGetDate(70), 5],
+        [handleGetDate(69), 5],
+        [handleGetDate(68), 6],
+        [handleGetDate(67), 7],
+        [handleGetDate(66), 6],
+        [handleGetDate(65), 9],
+        [handleGetDate(64), 9],
+        [handleGetDate(63), 8],
+        [handleGetDate(62), 10],
+        [handleGetDate(61), 10],
+        [handleGetDate(60), 10],
+        [handleGetDate(59), 10],
+        [handleGetDate(58), 9],
+        [handleGetDate(57), 9],
+        [handleGetDate(56), 10],
+        [handleGetDate(55), 9],
+        [handleGetDate(54), 9],
+        [handleGetDate(53), 8],
+        [handleGetDate(52), 8],
+        [handleGetDate(51), 8],
+        [handleGetDate(50), 8],
+        [handleGetDate(49), 8],
+        [handleGetDate(48), 7],
+        [handleGetDate(47), 7],
+        [handleGetDate(46), 6],
+        [handleGetDate(45), 6],
+        [handleGetDate(44), 6],
+        [handleGetDate(43), 6],
+        [handleGetDate(42), 5],
+        [handleGetDate(41), 5],
+        [handleGetDate(40), 4],
+        [handleGetDate(39), 4],
+        [handleGetDate(38), 5],
+        [handleGetDate(37), 5],
+        [handleGetDate(36), 5],
+        [handleGetDate(35), 7],
+        [handleGetDate(34), 7],
+        [handleGetDate(33), 7],
+        [handleGetDate(32), 10],
+        [handleGetDate(31), 9],
+        [handleGetDate(30), 9],
+        [handleGetDate(29), 10],
+        [handleGetDate(28), 11],
+        [handleGetDate(27), 11],
+        [handleGetDate(26), 8],
+        [handleGetDate(25), 8],
+        [handleGetDate(24), 7],
+        [handleGetDate(23), 8],
+        [handleGetDate(22), 9],
+        [handleGetDate(21), 8],
+        [handleGetDate(20), 9],
+        [handleGetDate(19), 10],
+        [handleGetDate(18), 9],
+        [handleGetDate(17), 10],
+        [handleGetDate(16), 16],
+        [handleGetDate(15), 17],
+        [handleGetDate(14), 16],
+        [handleGetDate(13), 17],
+        [handleGetDate(12), 16],
+        [handleGetDate(11), 15],
+        [handleGetDate(10), 14],
+        [handleGetDate(9), 24],
+        [handleGetDate(8), 18],
+        [handleGetDate(7), 15],
+        [handleGetDate(6), 14],
+        [handleGetDate(5), 16],
+        [handleGetDate(4), 16],
+        [handleGetDate(3), 17],
+        [handleGetDate(2), 7],
+        [handleGetDate(1), 7],
+        [handleGetDate(0), 7],
+      ],
+    },
+    {
+      name: "Page Views",
+      data: [
+        [handleGetDate(77), 14],
+        [handleGetDate(76), 13],
+        [handleGetDate(75), 15],
+        [handleGetDate(73), 14],
+        [handleGetDate(72), 13],
+        [handleGetDate(71), 15],
+        [handleGetDate(70), 16],
+        [handleGetDate(69), 16],
+        [handleGetDate(68), 14],
+        [handleGetDate(67), 14],
+        [handleGetDate(66), 13],
+        [handleGetDate(65), 12],
+        [handleGetDate(64), 13],
+        [handleGetDate(63), 13],
+        [handleGetDate(62), 15],
+        [handleGetDate(61), 16],
+        [handleGetDate(60), 16],
+        [handleGetDate(59), 17],
+        [handleGetDate(58), 17],
+        [handleGetDate(57), 18],
+        [handleGetDate(56), 15],
+        [handleGetDate(55), 15],
+        [handleGetDate(54), 15],
+        [handleGetDate(53), 19],
+        [handleGetDate(52), 19],
+        [handleGetDate(51), 18],
+        [handleGetDate(50), 18],
+        [handleGetDate(49), 17],
+        [handleGetDate(48), 16],
+        [handleGetDate(47), 18],
+        [handleGetDate(46), 18],
+        [handleGetDate(45), 18],
+        [handleGetDate(44), 16],
+        [handleGetDate(43), 14],
+        [handleGetDate(42), 14],
+        [handleGetDate(41), 13],
+        [handleGetDate(40), 14],
+        [handleGetDate(39), 13],
+        [handleGetDate(38), 10],
+        [handleGetDate(37), 9],
+        [handleGetDate(36), 10],
+        [handleGetDate(35), 11],
+        [handleGetDate(34), 11],
+        [handleGetDate(33), 11],
+        [handleGetDate(32), 10],
+        [handleGetDate(31), 9],
+        [handleGetDate(30), 10],
+        [handleGetDate(29), 13],
+        [handleGetDate(28), 14],
+        [handleGetDate(27), 14],
+        [handleGetDate(26), 13],
+        [handleGetDate(25), 12],
+        [handleGetDate(24), 11],
+        [handleGetDate(23), 13],
+        [handleGetDate(22), 13],
+        [handleGetDate(21), 13],
+        [handleGetDate(20), 13],
+        [handleGetDate(19), 14],
+        [handleGetDate(18), 13],
+        [handleGetDate(17), 13],
+        [handleGetDate(16), 19],
+        [handleGetDate(15), 21],
+        [handleGetDate(14), 22],
+        [handleGetDate(13), 25],
+        [handleGetDate(12), 24],
+        [handleGetDate(11), 24],
+        [handleGetDate(10), 22],
+        [handleGetDate(9), 16],
+        [handleGetDate(8), 15],
+        [handleGetDate(7), 12],
+        [handleGetDate(6), 12],
+        [handleGetDate(5), 15],
+        [handleGetDate(4), 15],
+        [handleGetDate(3), 15],
+        [handleGetDate(2), 18],
+        [handleGetDate(2), 18],
+        [handleGetDate(0), 17],
+      ],
+    },
+  ];
+  const visitorChartOptions: ApexOptions = {
     colors: ["#00acac", "#348fe2"],
     fill: { opacity: 0.75, type: "solid" },
     legend: {
@@ -142,20 +260,21 @@ const Dashboard: React.FC = () => {
     yaxis: { labels: { style: { colors: "#ffffff" } } },
     tooltip: {
       y: {
-        formatter: function (val: any) {
+        formatter: function (val: number) {
           return "$ " + val + " thousands";
         },
       },
     },
     chart: {
-      height: "100%",
-      type: "area",
+      // height: "100%",  ❌ remove or make number
+      type: "area", // ✅ OK
       toolbar: { show: false },
       stacked: true,
     },
     plotOptions: {
-      bar: { horizontal: false, columnWidth: "55%", endingShape: "rounded" },
+      bar: { horizontal: false, columnWidth: "55%", borderRadius: 4 },
     },
+
     dataLabels: { enabled: false },
     grid: {
       show: true,
@@ -164,7 +283,7 @@ const Dashboard: React.FC = () => {
       yaxis: { lines: { show: true } },
       padding: { top: -40, right: 3, bottom: 0, left: 10 },
     },
-    stroke: { show: false, curve: "straight" },
+    stroke: { curve: "straight" }, // ✅ fixed
   };
 
   // var totalSalesChartOptions = {
@@ -733,13 +852,13 @@ const Dashboard: React.FC = () => {
                   data-bs-theme="dark"
                   style={{ height: "254px" }}
                 >
-                  {/* <Chart
+                  <Chart
                     type="area"
                     height="254"
                     width="100%"
                     options={visitorChartOptions}
                     series={visitorChartSeries}
-                  /> */}
+                  />
                 </div>
               </div>
             </div>
