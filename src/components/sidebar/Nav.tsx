@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { NavLink, useLocation, matchPath } from "react-router-dom";
-import menus from "./app-menu.component";
-import { slideUp } from "./slide-up.component";
-import { slideToggle } from "./slide-toggle.component";
+import menus from "./Menu";
+import { slideUp } from "./SlideUp";
+import { slideToggle } from "./SlideToggle";
 
 interface MenuItem {
   path: string;

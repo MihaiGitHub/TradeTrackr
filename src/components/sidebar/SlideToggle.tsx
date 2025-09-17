@@ -1,5 +1,5 @@
-import { slideUp } from "./slide-up.component";
-import { slideDown } from "./slide-down.component";
+import { slideUp } from "./SlideUp";
+import { slideDown } from "./SlideDown";
 
 export function slideToggle(elm: HTMLElement, duration: number = 300): void {
   if (window.getComputedStyle(elm).display === "none") {

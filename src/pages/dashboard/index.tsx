@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 // import { ApexOptions } from "apexcharts";
 //import Moment from "moment";
 import "bootstrap-daterangepicker/daterangepicker.css";
-import StockAreaChart from "../../components/charts/area-chart.component";
+import StockAreaChart from "../../components/charts/StockAreaChart";
 //import * as bootstrap from "bootstrap";
 
 const Dashboard: React.FC = () => {

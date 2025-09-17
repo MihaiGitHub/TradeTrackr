@@ -1,14 +1,44 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/home/home.component";
-import Dashboard from "./pages/dashboard/dashboard.component";
-import Quotes from "./pages/quotes/quotes.component";
-import Screener from "./pages/screener/screener.component";
-import PaperTrading from "./pages/paper-trading/paper-trading.component";
-import TradingBot from "./pages/trading-bot/trading-bot.component";
-import Reports from "./pages/reports/reports.component";
-import Profile from "./pages/profile/profile.component";
-import Settings from "./pages/settings/settings.component";
+import Home from "./pages/home";
+import Dashboard from "./pages/dashboard";
+import Quotes from "./pages/quotes";
+import Screener from "./pages/screener";
+import PaperTrading from "./pages/paper-trading";
+import TradingBot from "./pages/trading-bot";
+import Reports from "./pages/reports";
+import Profile from "./pages/profile";
+import Settings from "./pages/settings";
+
+// src/
+// ├── components/
+// │   ├── charts/
+// │   │   ├── StockAreaChart/
+// │   │   │   ├── index.tsx
+// │   │   │   ├── Tooltip.tsx
+// │   │   │   ├── types.ts
+// │   │   │   └── StockAreaChart.module.css
+// │   │   ├── PieChart/
+// │   │   │   ├── index.tsx
+// │   │   │   ├── types.ts
+// │   │   │   └── PieChart.module.css
+// │   │   ├── BarChart/
+// │   │   │   ├── index.tsx
+// │   │   │   ├── types.ts
+// │   │   │   └── BarChart.module.css
+// │   │   └── common/              // shared chart code
+// │   │       ├── ChartTooltip.tsx
+// │   │       ├── ChartLegend.tsx
+// │   │       └── chartColors.ts
+// │   └── otherComponents/
+// │       ├── Navbar/
+// │       └── Sidebar/
+// ├── pages/
+// │   └── Dashboard/
+// │       ├── index.tsx
+// │       └── Dashboard.module.css
+// ├── App.tsx
+// └── index.tsx
 
 const App: React.FC = () => {
   return (

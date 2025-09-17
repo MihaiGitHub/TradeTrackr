@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import SidebarMinifyBtn from "./sidebar-minify-btn.component";
-import SidebarProfile from "./sidebar-profile.component";
-import SidebarNav from "./sidebar-nav.component";
+import SidebarMinifyBtn from "./MinifyBtn";
+import SidebarProfile from "./Profile";
+import SidebarNav from "./Nav";
 
 type SidebarProps = {
   appSidebarMinify: Boolean;

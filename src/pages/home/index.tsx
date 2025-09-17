@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "../../components/header/header.component";
-import Sidebar from "../../components/sidebar/sidebar.component";
-import Content from "../../components/content/content.component";
+import Header from "../../components/header";
+import Sidebar from "../../components/sidebar";
+import Content from "../../components/content";
 
 const Home: React.FC = () => {
   const [appSidebarMinify, setAppSidebarMinify] = useState(false);
