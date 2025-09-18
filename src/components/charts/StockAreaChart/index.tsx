@@ -108,26 +108,27 @@ const StockAreaChart: React.FC<StockAreaChartProps> = ({
       .attr("ry", 4)
       .attr("opacity", 0.9);
 
+    // Padding values
+    const paddingLeft = 11;
+    const paddingTop = 6;
+    const paddingBottom = 3;
+    const rowSpacing = 5;
+
     // Tooltip text elements
     const tooltipTextDate = tooltip
       .append("text")
-      .attr("x", 6)
-      .attr("y", 15)
+      .attr("x", paddingLeft)
       .attr("fill", "black")
       .style("font-size", "12px");
 
     const tooltipTextPrice = tooltip
       .append("text")
-      .attr("x", 20)
-      .attr("y", 30)
       .attr("fill", "black")
       .style("font-size", "12px");
 
-    // Colored square for price with border radius
+    // Colored square for price
     const tooltipPriceSquare = tooltip
       .append("rect")
-      .attr("x", 6)
-      .attr("y", 20)
       .attr("width", 10)
       .attr("height", 10)
       .attr("fill", "steelblue")
@@ -135,8 +136,6 @@ const StockAreaChart: React.FC<StockAreaChartProps> = ({
       .attr("ry", 5);
 
     const formatDate = d3.timeFormat("%b %d %Y"); // "Mar 15 2025"
-
-    const padding = 6; // equal top and bottom padding
 
     chart
       .append("rect")
@@ -173,17 +172,43 @@ const StockAreaChart: React.FC<StockAreaChartProps> = ({
           .attr("transform", `translate(${x(d.date) + 10},${y(d.price) - 40})`)
           .style("opacity", 1);
 
-        tooltipTextDate.text(formatDate(d.date)).style("font-weight", "bold");
-        tooltipTextPrice.html(
-          `Price: <tspan font-weight="bold">$${d.price.toFixed(2)}</tspan>`
-        );
+        // First row
+        tooltipTextDate
+          .text(formatDate(d.date))
+          .style("font-weight", "bold")
+          .attr("y", paddingTop + 12);
 
-        // Compute tooltip rect size with equal top/bottom padding
         const bboxDate = (tooltipTextDate.node() as SVGTextElement).getBBox();
+
+        // Second row (price)
+        tooltipPriceSquare
+          .attr("x", paddingLeft)
+          .attr("y", bboxDate.y + bboxDate.height + rowSpacing);
+
+        tooltipTextPrice
+          .html(
+            `Price: <tspan font-weight="bold">$${d.price.toFixed(2)}</tspan>`
+          )
+          .attr("x", paddingLeft + 14) // 10px square + 4px gap
+          .attr(
+            "y",
+            bboxDate.y + bboxDate.height + rowSpacing + 10 // align with square
+          );
+
         const bboxPrice = (tooltipTextPrice.node() as SVGTextElement).getBBox();
+
+        // Tooltip rect size (include left + right padding)
         const tooltipWidth =
-          Math.max(bboxDate.width, bboxPrice.x + bboxPrice.width + 6) + 12;
-        const tooltipHeight = bboxDate.height + bboxPrice.height + padding; // equal padding top & bottom
+          Math.max(
+            bboxDate.width + paddingLeft,
+            bboxPrice.x + bboxPrice.width + 6
+          ) + 6; // extra right padding
+        const tooltipHeight =
+          bboxDate.height +
+          rowSpacing +
+          bboxPrice.height +
+          paddingTop +
+          paddingBottom;
 
         tooltipRect.attr("width", tooltipWidth).attr("height", tooltipHeight);
       })
