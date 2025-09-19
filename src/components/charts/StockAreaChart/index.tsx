@@ -28,8 +28,8 @@ const StockAreaChart: React.FC<StockAreaChartProps> = ({
 
     const svg = d3
       .select(svgRef.current)
-      .attr("width", containerWidth)
-      .attr("height", height);
+      .attr("viewBox", `0 0 ${containerWidth} ${height}`)
+      .attr("preserveAspectRatio", "none"); // stretch to container
 
     svg.selectAll("*").remove();
 
@@ -221,7 +221,7 @@ const StockAreaChart: React.FC<StockAreaChartProps> = ({
 
   return (
     <div ref={wrapperRef} style={{ width: "100%" }}>
-      <svg ref={svgRef}></svg>
+      <svg ref={svgRef} style={{ width: "100%", height }}></svg>
     </div>
   );
 };

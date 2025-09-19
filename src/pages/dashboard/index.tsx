@@ -816,7 +816,7 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col-xl-8 col-lg-6">
+        <div className="col-xl-12 col-lg-12">
           <div className="card border-0 mb-3 bg-gray-800 text-white">
             <div className="card-body">
               <div className="mb-3 text-gray-500">
@@ -863,17 +863,14 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="card-body p-0">
               <div>
-                <div
-                  className="widget-chart-full-width pe-4"
-                  data-bs-theme="dark"
-                >
+                <div className="widget-chart-full-width" data-bs-theme="dark">
                   <StockAreaChart data={sampleStockData} height={400} />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-xl-4 col-lg-6">
+        {/* <div className="col-xl-4 col-lg-6">
           <div className="card bg-gray-800 border-0 text-white mb-3">
             <div className="card-body">
               <div className="mb-2 text-grey">
@@ -946,7 +943,7 @@ const Dashboard: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="row">
         <div className="col-xl-4 col-lg-6">
