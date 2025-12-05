@@ -11,6 +11,13 @@ import Profile from "./pages/profile";
 import Settings from "./pages/settings";
 
 // src/
+// ├── app/
+// │   └── store.ts
+// ├── features/
+// │   └── users/
+// │       ├── UsersList.tsx
+// │       ├── usersSlice.ts
+// │       └── types.ts
 // ├── components/
 // │   ├── charts/
 // │   │   ├── StockAreaChart/
