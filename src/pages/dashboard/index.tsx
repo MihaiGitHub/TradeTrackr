@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import "bootstrap-daterangepicker/daterangepicker.css";
 import StockAreaChart from "../../components/charts/StockAreaChart";
 //import * as bootstrap from "bootstrap";
+import UsersList from "../../features/users/UsersList";
 
 const Dashboard: React.FC = () => {
   // function handleGetDate(minusDate: number): Date {
@@ -621,6 +622,7 @@ const Dashboard: React.FC = () => {
                         options={totalSalesChartOptions}
                         series={totalSalesChartSeries}
                       /> */}
+                      <UsersList />
                     </div>
                   </div>
                   <div className="mb-3 text-gray-500">
